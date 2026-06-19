@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "81783431464",
+    "project_id": "traumatrace-ec86a",
+    "storage_bucket": "traumatrace-ec86a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81783431464:android:02507dd4f630c2274bf01d",
+        "android_client_info": {
+          "package_name": "com.example.trauma"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkFRhqPCkfAi3mSpIkZ3arF16D_XY_zx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
