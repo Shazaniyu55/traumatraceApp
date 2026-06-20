@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(),
           Column(
@@ -107,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen> {
               
             ],
           ),
-
+const SizedBox(height: 32),
           BottomRectangularBtn(onTapFunc: (){
             changeScreenReplacement(context, LoginScreen());
           }, btnTitle: "Get Started",)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:trauma/core/helper/rensponsive.dart';
 import 'package:trauma/features/widget/button.dart';
 import 'package:trauma/features/widget/input.dart';
 import '../../core/auth_service.dart';
@@ -33,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final auth = context.read<AuthService>();
     return Scaffold(
       body: SafeArea(
-        child: Padding(
+        child: ResponsiveCenter(
           padding: const EdgeInsets.all(24),
           child: ListView(
             children: [

@@ -139,7 +139,7 @@ class _InputFieldPasswordState extends State<InputFieldPassword> {
           ),
         ),
         Container(
-          width: MediaQuery.of(context).size.width * 0.95,
+          width: double.infinity,
           child: Row(
             children: [
               Container(
@@ -279,7 +279,7 @@ class InputFieldsWithSeparateIcon extends StatelessWidget {
           ),
         ),
         Container(
-          width: MediaQuery.of(context).size.width * 0.95,
+          width: double.infinity,
           child: Row(
             children: [
               Container(

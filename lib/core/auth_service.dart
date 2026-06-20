@@ -5,8 +5,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'api_client.dart';
 
-/// Wraps Firebase Auth (Google / Apple / Email) and exposes the ID token used
-/// as the bearer for the NestJS API.
+
 class AuthService extends ChangeNotifier {
   final _auth = FirebaseAuth.instance;
   bool ready = false;
@@ -14,29 +13,30 @@ class AuthService extends ChangeNotifier {
   User? get user => _auth.currentUser;
   bool get isSignedIn => user != null;
 
-  // void init() {
-  //   _auth.authStateChanges().listen((_) async {
-  //     ready = true;
-  //     ApiClient.instance.tokenProvider = idToken;
-  //     if (isSignedIn) {
-  //       await _registerPushToken();
-  //     }
-  //     notifyListeners();
-  //   });
-  // }
-
   void init() {
-  _auth.authStateChanges().listen((_) {
-    ready = true;
-    ApiClient.instance.tokenProvider = idToken;
-    notifyListeners();            // navigate immediately on auth change
-    if (isSignedIn) {
-      _registerPushToken();       // fire-and-forget, don't block the UI
-    }
-  });
-}
+    _auth.authStateChanges().listen((_) async {
+      ready = true;
+      ApiClient.instance.tokenProvider = idToken;
+      if (isSignedIn) {
+        await _registerPushToken();
+      }
+      notifyListeners();
+    });
+  }
+  
 
-  Future<String?> idToken() async => _auth.currentUser?.getIdToken();
+//   void init() {
+//   _auth.authStateChanges().listen((_) {
+//     ready = true;
+//     ApiClient.instance.tokenProvider = idToken;
+//     notifyListeners();            // navigate immediately on auth change
+//     if (isSignedIn) {
+//       _registerPushToken();       // fire-and-forget, don't block the UI
+//     }
+//   });
+// }
+
+Future<String?> idToken() async => _auth.currentUser?.getIdToken();
 
   Future<void> signInWithEmail(String email, String password) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);

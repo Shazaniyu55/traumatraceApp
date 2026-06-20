@@ -9,7 +9,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Provide firebase_options.dart via `flutterfire configure`, then:
    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  await Firebase.initializeApp();
   runApp(
     ChangeNotifierProvider(
       create: (_) => AuthService()..init(),
