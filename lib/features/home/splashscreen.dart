@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:trauma/core/constant/colors.dart';
 import 'package:trauma/core/helper/navigator.dart';
-import 'package:trauma/features/auth/login_screen.dart';
+import 'package:trauma/features/home/onboard/intro.dart';
 import 'package:trauma/features/widget/button.dart';
 
 
@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: AppBar(
             systemOverlayStyle: SystemUiOverlayStyle(
               // Status bar color
-              statusBarColor: lightColor,
+              statusBarColor: listCardColor,
 
               // Status bar brightness (optional)
               statusBarIconBrightness:
@@ -87,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
     }
 
     return Image.asset(
-      'images/logo.png',
+      'images/trace.png',
       height: logoSize,
       width: logoSize,
       fit: BoxFit.contain,
@@ -96,7 +96,7 @@ class _SplashScreenState extends State<SplashScreen> {
 ),
               const SizedBox(height: 8),
               Text(
-                'TraumaTrace',
+                'Trace',
                 style: TextStyle(
                   fontFamily: 'sfpro',
                   color: primaryColor,
@@ -109,8 +109,8 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
 const SizedBox(height: 32),
           BottomRectangularBtn(onTapFunc: (){
-            changeScreenReplacement(context, LoginScreen());
-          }, btnTitle: "Get Started",)
+            changeScreenReplacement(context, IntroScreen());
+          }, btnTitle: "Get Started", color:primaryColor, buttonTextColor: listCardColor,)
          
         ],
       ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:trauma/core/constant/colors.dart';
 import 'package:trauma/core/helper/avatar.dart';
+import '../../core/auth_service.dart';
+import 'package:provider/provider.dart';
+
 // import 'avatar_with_fallback.dart'; // if you put the helper in its own file
 
 class ProfileScreen extends StatelessWidget {
@@ -13,6 +16,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final auth = context.read<AuthService>();
+
     return Container(
       decoration: BoxDecoration(gradient: appBgGradient),
       child: Scaffold(
@@ -104,6 +109,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   onPressed: () {
                     // TODO: call auth.signOut()
+                    auth.signOut();
                   },
                   icon: const Icon(Icons.logout),
                   label: const Text('Log out'),

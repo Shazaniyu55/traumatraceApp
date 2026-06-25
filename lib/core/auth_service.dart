@@ -23,7 +23,23 @@ class AuthService extends ChangeNotifier {
       notifyListeners();
     });
   }
-  
+//   void init() {
+//   _auth.authStateChanges().listen((_) async {
+//     ready = true;
+//     ApiClient.instance.tokenProvider = idToken;
+//     if (isSignedIn) {
+//       await _syncUser();
+//       await _registerPushToken();
+//     }
+//     notifyListeners();
+//   });
+// }
+
+// Future<void> _syncUser() async {
+//   try {
+//     await ApiClient.instance.post('/users/sync', {});
+//   } catch (_) {}
+// }
 
 //   void init() {
 //   _auth.authStateChanges().listen((_) {

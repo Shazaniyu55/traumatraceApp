@@ -52,6 +52,7 @@ dependencies:
   google_sign_in: ^6.2.1
   sign_in_with_apple: ^8.1.0
   provider: ^6.1.5+1
+  video_player: ^2.11.1
 
 
 dev_dependencies:

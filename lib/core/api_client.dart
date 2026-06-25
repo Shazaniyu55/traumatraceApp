@@ -9,7 +9,7 @@ class ApiClient {
   // Use 10.0.2.2 for Android emulator -> host machine; localhost for iOS sim.
   String baseUrl = const String.fromEnvironment(
     'API_BASE',
-    defaultValue: 'http://localhost:3000/api',
+    defaultValue: 'http://localhost:8083/api',
   );
 
   Future<String?> Function()? tokenProvider;

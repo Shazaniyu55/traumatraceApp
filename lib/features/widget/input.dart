@@ -146,7 +146,7 @@ class _InputFieldPasswordState extends State<InputFieldPassword> {
                 width: 60,
                 height: 58,
                 decoration: BoxDecoration(
-                  color: bg2CintainerColor,
+                  color: cardColor,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8)),
@@ -286,7 +286,7 @@ class InputFieldsWithSeparateIcon extends StatelessWidget {
                 width: 60,
                 height: 58,
                 decoration: BoxDecoration(
-                  color: bg2CintainerColor,
+                  color: cardColor,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8),
                       bottomLeft: Radius.circular(8)),
