@@ -12,21 +12,31 @@ class TraumaTraceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TraumaTrace',
+      title: 'Trace',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: kSeed),
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF7F5F1),
       ),
-      home: Consumer<AuthService>(
-        builder: (context, auth, _) {
-          if (!auth.ready) {
-            return const Scaffold(body: Center(child: CircularProgressIndicator()));
-          }
-          return auth.isSignedIn ? const MainShell() : const SplashScreen();
-        },
-      ),
+     home: Consumer<AuthService>(
+  builder: (context, auth, _) {
+      print("Consumer rebuilt");
+    print("ready=${auth.ready}");
+    print("signedIn=${auth.isSignedIn}");
+
+
+    if (!auth.ready) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    return auth.isSignedIn
+        ? const MainShell()
+        : const SplashScreen();
+  },
+),
     );
   }
 }

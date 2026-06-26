@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trauma/core/constant/colors.dart';
+import 'package:trauma/features/progress/journal_screen.dart';
 import '../features/home/home_tab.dart';
 import '../features/resources/resources_tab.dart';
 import '../features/progress/progress_tab.dart';
@@ -14,7 +15,7 @@ class _MainShellState extends State<MainShell> {
   int _index = 0;
 
   // Keep tabs alive when switching
-  final _tabs = const [HomeTab(), ResourcesTab(), ProgressTab()];
+  final _tabs = const [HomeTab(), ResourcesTab(), ProgressTab(), JournalScreen()];
 
   void _onNavTap(int i) => setState(() => _index = i);
 
@@ -70,10 +71,10 @@ class _BottomBar extends StatelessWidget {
                 onTap: () => onTap(2),
               ),
               _NavItem(
-                icon: Icons.bar_chart_rounded,
-                label: 'More',
-                selected: false,
-                onTap: () {},
+                icon: Icons.note_add_outlined,
+                label: 'Journal',
+                selected: currentIndex == 3,
+                onTap: () => onTap(3),
               ),
             ],
           ),

@@ -1,6 +1,5 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously, sized_box_for_whitespace, file_names, use_super_parameters
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:trauma/features/home/onboard/onboard.dart';
 import 'package:video_player/video_player.dart';
 import 'package:trauma/core/constant/colors.dart';

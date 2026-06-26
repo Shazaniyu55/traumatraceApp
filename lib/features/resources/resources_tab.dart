@@ -13,7 +13,9 @@ class ResourcesTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Resources')),
+      appBar: AppBar(
+        
+        title: const Text('Resources')),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

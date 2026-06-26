@@ -1,6 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:trauma/core/constant/colors.dart';
 import 'package:trauma/core/helper/avatar.dart';
+import 'package:trauma/core/helper/navigator.dart';
+import 'package:trauma/features/auth/login_screen.dart';
 import '../../core/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -107,9 +111,10 @@ class ProfileScreen extends StatelessWidget {
                     backgroundColor: Colors.red.shade400,
                     padding: const EdgeInsets.symmetric(vertical: 14),
                   ),
-                  onPressed: () {
+                  onPressed: ()async {
                     // TODO: call auth.signOut()
-                    auth.signOut();
+                    await auth.signOut();
+                    changeScreenReplacement(context, LoginScreen());
                   },
                   icon: const Icon(Icons.logout),
                   label: const Text('Log out'),

@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: ListView(
             children: [
               const SizedBox(height: 40),
-              Text('TraumaTrace',
+              Text('Trace',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontWeight: FontWeight.w600)),
               const SizedBox(height: 8),
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   headerText: "Password",
                   svg: 'key',
                   hintText: '• • • • • • • •',
-                  textController: _password, onChange: (){},
+                  textController: _password, onChange: (value){},
                 ),
               // TextField(controller: _password, obscureText: true, decoration: const InputDecoration(labelText: 'Password')),
               if (_error != null) Padding(
@@ -77,12 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
   ),
 ),
 
-              // FilledButton(
-              //   onPressed: _busy ? null : () => _run(() => _register
-              //       ? auth.registerWithEmail(_email.text.trim(), _password.text)
-              //       : auth.signInWithEmail(_email.text.trim(), _password.text)),
-              //   child: Text(_register ? 'Create account' : 'Sign in'),
-              // ),
+             
               TextButton(
                 onPressed: () => setState(() => _register = !_register),
                 child: Text(_register ? 'I already have an account' : 'Create an account'),

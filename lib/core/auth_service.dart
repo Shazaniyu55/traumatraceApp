@@ -8,49 +8,26 @@ import 'api_client.dart';
 
 class AuthService extends ChangeNotifier {
   final _auth = FirebaseAuth.instance;
+
+  User? _user;
+
+bool get isSignedIn => _user != null;
+
   bool ready = false;
 
-  User? get user => _auth.currentUser;
-  bool get isSignedIn => user != null;
 
   void init() {
-    _auth.authStateChanges().listen((_) async {
+    _auth.authStateChanges().listen((user) {
+      print("AUTH CHANGED: ${user?.email}");
+
+      _user = user;
       ready = true;
-      ApiClient.instance.tokenProvider = idToken;
-      if (isSignedIn) {
-        await _registerPushToken();
-      }
+
       notifyListeners();
     });
   }
-//   void init() {
-//   _auth.authStateChanges().listen((_) async {
-//     ready = true;
-//     ApiClient.instance.tokenProvider = idToken;
-//     if (isSignedIn) {
-//       await _syncUser();
-//       await _registerPushToken();
-//     }
-//     notifyListeners();
-//   });
-// }
 
-// Future<void> _syncUser() async {
-//   try {
-//     await ApiClient.instance.post('/users/sync', {});
-//   } catch (_) {}
-// }
 
-//   void init() {
-//   _auth.authStateChanges().listen((_) {
-//     ready = true;
-//     ApiClient.instance.tokenProvider = idToken;
-//     notifyListeners();            // navigate immediately on auth change
-//     if (isSignedIn) {
-//       _registerPushToken();       // fire-and-forget, don't block the UI
-//     }
-//   });
-// }
 
 Future<String?> idToken() async => _auth.currentUser?.getIdToken();
 
@@ -92,16 +69,6 @@ Future<void> signInWithGoogle() async {
   }
 
   Future<void> signOut() async => _auth.signOut();
-
-  // Future<void> _registerPushToken() async {
-  //   try {
-  //     await FirebaseMessaging.instance.requestPermission();
-  //     final token = await FirebaseMessaging.instance.getToken();
-  //     if (token != null) {
-  //       await ApiClient.instance.post('/users/fcm-token', {'fcmToken': token});
-  //     }
-  //   } catch (_) {/* push optional in MVP */}
-  // }
 
   Future<void> _registerPushToken() async {
   if (kIsWeb) return;   // FCM web needs a VAPID key + service worker; skip for MVP

@@ -9,9 +9,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Provide firebase_options.dart via `flutterfire configure`, then:
    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+   final authService = AuthService()..init();
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => AuthService()..init(),
+    ChangeNotifierProvider.value(
+      value: authService,
       child: const TraumaTraceApp(),
     ),
   );
